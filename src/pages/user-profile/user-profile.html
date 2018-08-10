@@ -1,0 +1,27 @@
+
+<ion-header>
+
+  <ion-navbar color="purple">
+    <ion-title>userProfile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="content" padding>
+  <div class="container" align="center"> 
+ <h1 par="par">profiles</h1>
+<ion-card class="item" *ngFor="let profile of profiles; let i=index;" >
+<ion-card-content>
+ 
+    
+<h2> {{profile.firstname}} {{profile.lastname}}  </h2> 
+     
+          <img src="../assets/imgs/propic.png">
+        
+          
+          <button full ion-button color="sweet" class="view-btn" (click)="detailsPeople(i)">VIEW FULL INFORMATION</button>
+</ion-card-content>
+</ion-card> 
+  </div>
+</ion-content>

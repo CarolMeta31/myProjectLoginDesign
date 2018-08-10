@@ -1,3 +1,74 @@
 page-home {
+    .login-content {
+      background-image: url('../assets/imgs/pic2.jpg');
+      background-repeat: no-repeat;
+      background-position:center;
+      background-size: 20cm;
+        .logo-row {
+          padding-top: 50px;
+          padding-bottom: 20px 20px 0px 20px;
+          margin-top: 30px;
+        }
+     
+        .login-box {
+          //background: #399F8B;
+          padding: 20px 20px 0px 20px;
+         margin-top: 30px;
+        }
+     
+        ion-row {
+           align-items: center;
+           text-align: center;
+         }
+     
+         ion-item {
+          background-color: rgba(0.0,0.0,0.0,0.4);
+             border-radius: 30px !important;
+             padding-left: 30px !important;
+             font-size: 0.9em;
+             margin-bottom: 10px;
+             border: 1px solid #ffffff;
+             border-bottom: 0px !important;
+             box-shadow: none !important;
+         }
+         .signup-col {
+            margin: 0px 16px 0px 16px;
+            padding-bottom: 20px;
+          }
+      
+          .item-inner {
+            border-bottom-color: #ffffff !important;
+            box-shadow: none !important;
+          }
+      
+          .submit-btn {
+            background:rgba(128, 0, 75, 0.295);
+            border-radius: 30px !important;
+            border: 1px solid #ffffff;
+            color: #ffffff;
+          }
+      
+          .register-btn {
+            color: #ffffff;
+            font-size: 0.8em;
+          }
+          .create-btn{
+            background-color: rgba(0, 0, 0, 0.116);
+            border-radius: 30px !important;
+          }
+
+          .logo{
+           width:50%;
+           height:50%;
+          
+           
+          }
+          .slogan{
+            color: #ffffff;
+            font-size: 0.9em;
+            background-color: rgba(0, 0, 0, 0.116);
+           
+          }
+       }
 
 }

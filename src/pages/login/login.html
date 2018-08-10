@@ -1,0 +1,24 @@
+
+<ion-header>
+
+  <ion-navbar color="purple">
+    <ion-title>welcome createAccount</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content class="login-content" padding>
+   <div class="login-box">
+    
+ 
+      <ion-list>
+        <ion-item *ngFor="let detail of details" (click)="viewDetail(detail)">{{detail.Name}}</ion-item>
+      </ion-list>
+
+     
+      <button ion-button color="light" clear class="account-btn" style="float:right" (click)="createAccount(detail)">create account</button>
+    
+  </div>
+</ion-content>

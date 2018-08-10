@@ -1,14 +1,73 @@
+
+
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="purple">
     <ion-title>
-      Ionic Blank
+      login page
     </ion-title>
+    
+  
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+<ion-content class="login-content" padding>
+  <div class="login-box">
+    
+    <form [formGroup]="LoginForm" (ngSubmit)="onSubmit(LoginForm.value)">
+        <div text-center>
+
+          <img class="logo" src="../assets/imgs/QQ.png"/>
+      </div>
+      
+        <button ion-button  full class="slogan"> YOU ARE AWESOME!</button>
+      
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            
+            
+
+            <ion-item class="ion-Items" [ngClass]="{'error-border':!LoginForm.controls.username.valid && LoginForm.controls.username.touched}">
+              <ion-label style="color:white" floating> <ion-icon ios="ios-contact" md="md-contact"></ion-icon> Username</ion-label>
+              <ion-input style="color:white" formControlName="username" type="text"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="LoginForm.controls.username.hasError('required') && LoginForm.controls.username.touched">
+            <p  ion-text color="danger">Sorry, field username is required!</p>
+          </ion-item>
+          <ion-item *ngIf="LoginForm.controls.username.hasError('pattern') && LoginForm.controls.username.touched">
+            <p  ion-text color="danger">Sorry, only small and capital letters are allowed!</p>
+          </ion-item>        
+          <ion-item *ngIf="LoginForm.controls.username.hasError('minlength') && LoginForm.controls.username.touched">
+            <p  ion-text color="danger">Sorry, minimum username length is 8!</p>
+          </ion-item>
+          <ion-item *ngIf="LoginForm.controls.username.hasError('maxlength') && LoginForm.controls.username.touched">
+            <p  ion-text color="danger">Sorry, maximum username length is 30!</p>
+          </ion-item>
+            
+          <ion-item class="ion-Items" [ngClass]="{'error-border':!LoginForm.controls.password.valid && LoginForm.controls.password.touched}">
+              <ion-label style="color:white" floating><ion-icon ios="ios-lock" md="md-lock"></ion-icon> Password</ion-label>
+              <ion-input style="color:white" formControlName="password" type="password"></ion-input>
+                  </ion-item>
+                <ion-item *ngIf="LoginForm.controls.password.hasError('required') && LoginForm.controls.password.touched">
+              <p  ion-text color="danger">Sorry, field password is required!</p>
+              </ion-item>
+              <ion-item *ngIf="LoginForm.controls.password.hasError('minlength') && LoginForm.controls.password.touched">
+              <p  ion-text color="danger">Sorry, minimum password length is 8!</p>
+               </ion-item>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+       <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button  class="submit-btn" color="light" [disabled]="!LoginForm.valid" 
+           style="margin-top: 20px;" type="submit">LogIN</button> 
+        </ion-col>
+     
+      </ion-row>
+</form>
+       <button ion-button color="light" clear class="create-btn" style="float:right" (click)="createAccount()">create account</button>
+</div>
 </ion-content>

@@ -1,30 +1,25 @@
-
-import { UserProfilePage } from './../user-profile/user-profile';
-import { LoginPage } from './../login/login';
-import { RegisterPage } from './../register/register';
 import { DetailsPage } from './../details/details';
+import { RegisterPage } from './../register/register';
 import { Component } from '@angular/core';
-import { NavController,NavParams} from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {FormBuilder,FormGroup,Validators,FormControl} from '@angular/forms';
 import { AlertController,ModalController } from 'ionic-angular';
 
+@IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-login',
+  templateUrl: 'login.html',
 })
-export class HomePage {
-
+export class LoginPage {
   
- 
-  LoginForm: FormGroup; 
+  public details = [];
 
+  LoginForm: FormGroup; 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private formBuilder:FormBuilder,private alertCtrl: AlertController,public modalCtrl:
     ModalController) {
-    
-      
 
-   this.LoginForm = formBuilder.group({
+    this.LoginForm = formBuilder.group({
       username: ['', Validators.compose([Validators.required, 
         Validators.pattern('[a-zA-Z]*'), 
       Validators.minLength(8), Validators.maxLength(30)])],
@@ -37,23 +32,38 @@ export class HomePage {
   
   }
   
+  createAccount(){
 
-  onSubmit(value: any): void { 
-    if(this.LoginForm.valid) {
-     
 
-    }
-    this.navCtrl.push(UserProfilePage);
+  let addModal = this.modalCtrl.create(RegisterPage);
+ 
+  addModal.onDidDismiss((detail) => {
+
+        if(detail){
+          this.saveDetails(detail);
+        }
+
+  });
+
+  addModal.present();
 
 
 }
-
-
-createAccount(){
-
-  this.navCtrl.push(LoginPage);
+ 
+saveDetails(detail){
+  this.details.push(detail);
 }
 
 
 
+viewDetail(detail){
+  this.navCtrl.push(DetailsPage, {
+    detail: detail
+  });
+}
+
+
+ 
+
+  
 }

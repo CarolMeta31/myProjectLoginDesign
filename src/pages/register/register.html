@@ -1,0 +1,88 @@
+
+<ion-header>
+
+  <ion-navbar color="purple">
+    <ion-title>register</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="content" padding>
+
+  <h1 style="color:white">Welcome</h1>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm.value)">
+
+    <ion-item class="fields" [ngClass]="{'error-border':!profileForm.controls.Name.valid && profileForm.controls.Name.touched}">
+    <ion-label style="color:white" stacked>Name</ion-label>
+    <ion-input style="color:white" formControlName="Name" type="text" [(ngModel)]="Name"></ion-input>
+</ion-item>
+
+<ion-item *ngIf="profileForm.controls.Name.hasError('required') &&profileForm.controls.Name.touched">
+  <p>Sorry, field name is required!</p>
+</ion-item>
+<ion-item *ngIf="profileForm.controls.Name.hasError('pattern') && profileForm.controls.Name.touched">
+  <p  ion-text color="danger">Sorry, only small and capital letters are allowed!</p>
+</ion-item>        
+<ion-item *ngIf="profileForm.controls.Name.hasError('minlength') && profileForm.controls.Name.touched">
+  <p ion-text color="danger">Sorry, minimum name length is 2!</p>
+</ion-item>
+
+
+
+
+<ion-item class="fields" [ngClass]="{'error-border':!profileForm.controls.Surname.valid && profileForm.controls.Surname.touched}">
+    <ion-label style="color:white" stacked>Surname</ion-label>
+    <ion-input style="color:white" formControlName="Surname" type="text" [(ngModel)]="Surname"></ion-input>
+</ion-item>
+<ion-item *ngIf="profileForm.controls.Surname.hasError('required') && profileForm.controls.Surname.touched">
+  <p  ion-text color="danger">Sorry, field surname is required!</p>
+</ion-item>
+<ion-item *ngIf="profileForm.controls.Surname.hasError('pattern') && profileForm.controls.Surname.touched">
+  <p  ion-text color="danger">Sorry, only small and capital letters are allowed!</p>
+</ion-item>        
+<ion-item *ngIf="profileForm.controls.Surname.hasError('minlength') && profileForm.controls.Surname.touched">
+  <p  ion-text color="danger">Sorry, minimum surname length is 2!</p>
+</ion-item>
+
+
+
+<ion-item class="fields" [ngClass]="{'error-border':!profileForm.controls.Age.valid && profileForm.controls.Age.touched}">
+    <ion-label style="color:white" stacked>Age</ion-label>
+    <ion-input style="color:white" formControlName="Age" type="text" [(ngModel)]="Age"></ion-input>
+</ion-item>
+
+<ion-item *ngIf="profileForm.controls.Age.hasError('required') && profileForm.controls.Age.touched">
+  <p  ion-text color="danger">Sorry, field age is required!</p>
+</ion-item>
+<ion-item *ngIf="profileForm.controls.Age.hasError('pattern') && profileForm.controls.Age.touched">
+  <p ion-text color="danger">Sorry, only numbers allowed!</p>
+</ion-item>        
+
+
+
+
+
+
+<!-- Only allow form to be submitted IF validation criteria for
+  input fields has been successfully passed -->
+<button
+ion-button
+block
+margin-top
+color="light"
+class="sub-btn"
+text-center
+type="submit"
+[disabled]="!profileForm.valid">Submit</button>
+
+
+
+</form>
+
+
+</ion-content>
+

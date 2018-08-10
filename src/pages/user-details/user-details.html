@@ -1,0 +1,26 @@
+
+<ion-header>
+
+  <ion-navbar color="purple">
+    <ion-title>userDetails</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content  class="container"padding>
+  <ion-card class="card" *ngFor="let detail of details">
+
+    <ion-card-content >
+  
+       <div class="profile">
+         
+      <h2> Name: {{detail.firstname}}</h2>
+      <h2>Surname: {{detail.lastname}}</h2>
+      <h2> age: {{detail.age}}</h2>
+    
+      <button ion-button small round class="view-btn" (click)="ok()">Ok</button>
+     </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

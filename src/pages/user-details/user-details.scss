@@ -1,0 +1,18 @@
+page-user-details {
+    .container{
+        background-image: url('../assets/imgs/pic2.jpg');
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size: 20cm;
+      padding: 20px 20px 0px 20px;
+      margin-top: 30px;
+
+      .view-btn{
+
+        background:#6B5597;
+        border-radius: 30px !important;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+      }
+    }
+}
